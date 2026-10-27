@@ -1,0 +1,540 @@
+/* ============================================================
+   汉语言学习 · 共享样式
+   古汉语模块：宣纸 + 墨 + 朱砂；现代汉语模块：青黛冷调
+   ============================================================ */
+
+:root {
+  /* 基础（古汉语模块默认） */
+  --paper: #f7f1e4;
+  --paper-deep: #efe4ce;
+  --paper-card: #fdfaf3;
+  --ink: #2a251f;
+  --ink-soft: #5c5347;
+  --ink-faint: #93876f;
+  --line: #ddd2ba;
+  --accent: #a63d2f;        /* 朱砂 */
+  --accent-soft: #c96a54;
+  --accent-bg: rgba(166, 61, 47, 0.08);
+  --mark: rgba(166, 61, 47, 0.16);
+  --font-serif: "Noto Serif SC", "Source Han Serif SC", "Songti SC", "STSong", "SimSun", "Times New Roman", serif;
+  --font-body: "Noto Serif SC", "Source Han Serif SC", "Songti SC", "STSong", "SimSun", serif;
+  --shadow: 0 1px 2px rgba(42, 37, 31, 0.06);
+}
+
+body.m-xiandai {
+  --paper: #f1f4ef;
+  --paper-deep: #e2e9e1;
+  --paper-card: #fafcf8;
+  --ink: #232b28;
+  --ink-soft: #4f5c56;
+  --ink-faint: #84928b;
+  --line: #cfdad2;
+  --accent: #2e5e5a;        /* 青黛 */
+  --accent-soft: #4a7d76;
+  --accent-bg: rgba(46, 94, 90, 0.08);
+  --mark: rgba(46, 94, 90, 0.15);
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ---------- 页头 ---------- */
+.masthead {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--paper-deep);
+  border-bottom: 1px solid var(--line);
+}
+
+.masthead-inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 56px;
+  gap: 12px;
+}
+
+.brand {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  color: var(--ink);
+  text-decoration: none;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.brand .brand-cn { font-size: 1.16rem; }
+.brand .brand-en { font-size: 0.72rem; color: var(--ink-faint); letter-spacing: 0.14em; }
+
+.masthead nav { display: flex; gap: 4px; flex-wrap: wrap; }
+
+.masthead nav a {
+  color: var(--ink-soft);
+  text-decoration: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  border: 1px solid transparent;
+}
+
+.masthead nav a:hover { color: var(--ink); background: var(--paper-card); }
+
+.masthead nav a.on {
+  color: var(--accent);
+  border-color: var(--accent);
+  background: var(--accent-bg);
+  font-weight: 600;
+}
+
+/* 模块切换 */
+.module-switch {
+  display: flex;
+  gap: 6px;
+  margin: 18px 0 0;
+}
+
+.module-switch a {
+  display: inline-block;
+  padding: 8px 18px;
+  border: 1px solid var(--line);
+  border-bottom: none;
+  border-radius: 10px 10px 0 0;
+  background: var(--paper-deep);
+  color: var(--ink-soft);
+  text-decoration: none;
+  font-size: 0.98rem;
+}
+
+.module-switch a.on {
+  background: var(--paper-card);
+  color: var(--accent);
+  font-weight: 700;
+  border-color: var(--accent);
+  position: relative;
+  top: 1px;
+}
+
+/* 讲次导航 */
+.lesson-nav {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 6px 20px 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 10px;
+  border-bottom: 1px solid var(--line);
+}
+
+.lesson-nav a {
+  color: var(--ink-soft);
+  text-decoration: none;
+  font-size: 0.92rem;
+  padding: 4px 2px;
+  border-bottom: 2px solid transparent;
+}
+
+.lesson-nav a:hover { color: var(--ink); }
+
+.lesson-nav a.on {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+  font-weight: 600;
+}
+
+/* ---------- 主体 ---------- */
+main {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 28px 20px 80px;
+}
+
+.page-head { margin-bottom: 34px; }
+
+.crumb {
+  font-size: 0.86rem;
+  color: var(--ink-faint);
+  margin-bottom: 14px;
+}
+
+.crumb a { color: var(--ink-soft); text-decoration: none; }
+.crumb a:hover { color: var(--accent); }
+
+h1 {
+  font-size: 2rem;
+  line-height: 1.35;
+  margin: 0 0 10px;
+  letter-spacing: 0.04em;
+  font-weight: 700;
+}
+
+.subtitle {
+  color: var(--ink-soft);
+  font-size: 0.98rem;
+  margin: 0 0 6px;
+}
+
+.lesson-src {
+  color: var(--ink-faint);
+  font-size: 0.84rem;
+  margin: 0;
+}
+
+/* 文内目录 */
+.toc {
+  background: var(--paper-card);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--accent);
+  border-radius: 8px;
+  padding: 14px 18px;
+  margin: 22px 0 34px;
+  font-size: 0.95rem;
+}
+
+.toc b { display: block; margin-bottom: 6px; color: var(--ink-soft); }
+
+.toc ol { margin: 0; padding-left: 1.4em; }
+.toc li { margin: 2px 0; }
+.toc a { color: var(--ink-soft); text-decoration: none; }
+.toc a:hover { color: var(--accent); }
+
+/* 章节 */
+section.sec { margin: 0 0 44px; }
+
+.sec > h2 {
+  font-size: 1.42rem;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--line);
+  margin: 0 0 18px;
+  letter-spacing: 0.02em;
+}
+
+.sec > h2 .no {
+  color: var(--accent);
+  font-size: 0.9em;
+  margin-right: 10px;
+}
+
+.sec > h3 {
+  font-size: 1.16rem;
+  margin: 28px 0 10px;
+  color: var(--ink);
+}
+
+.lead { color: var(--ink-soft); }
+.lead strong, .sec p strong { color: var(--ink); }
+
+/* 说明 / 概念 */
+.note {
+  background: var(--accent-bg);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 8px 8px 0;
+  padding: 10px 16px;
+  margin: 16px 0;
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+}
+
+.note b { color: var(--accent); }
+
+/* 文言文段落 */
+.passage {
+  margin: 22px 0;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--paper-card);
+  overflow: hidden;
+}
+
+.passage .yuanwen {
+  padding: 16px 20px 14px;
+  font-size: 1.12rem;
+  line-height: 2.05;
+}
+
+.passage .yuanwen .src {
+  display: block;
+  margin-top: 10px;
+  font-size: 0.86rem;
+  color: var(--ink-faint);
+  text-align: right;
+}
+
+.passage .zhushi {
+  border-top: 1px dashed var(--line);
+  padding: 12px 20px 8px;
+}
+
+.passage .zhushi > b {
+  color: var(--accent);
+  font-size: 0.9rem;
+  letter-spacing: 0.06em;
+}
+
+.passage .zhushi dl {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 4px 26px;
+  margin: 8px 0 4px;
+}
+
+.passage .zhushi dt {
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.passage .zhushi dt .py {
+  font-weight: 400;
+  color: var(--ink-faint);
+  font-size: 0.86em;
+  margin-left: 3px;
+}
+
+.passage .zhushi dd {
+  margin: 0 0 6px;
+  color: var(--ink-soft);
+  font-size: 0.94rem;
+}
+
+.passage .yiyi {
+  border-top: 1px solid var(--line);
+  background: var(--paper);
+  padding: 12px 20px 14px;
+  font-size: 1rem;
+  color: var(--ink);
+}
+
+.passage .yiyi b {
+  color: var(--accent);
+  font-size: 0.9rem;
+  letter-spacing: 0.06em;
+  margin-right: 8px;
+}
+
+/* 课件自带的逐句注释（如精卫填海、郑伯克段于鄢） */
+.sentence {
+  margin: 18px 0;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--paper-card);
+  overflow: hidden;
+}
+
+.sentence .wen {
+  padding: 14px 20px;
+  font-size: 1.12rem;
+  line-height: 2.05;
+}
+
+.sentence .ci {
+  border-top: 1px dashed var(--line);
+  padding: 10px 20px 6px;
+}
+
+.sentence .ci dl {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 4px 26px;
+  margin: 6px 0 2px;
+}
+
+.sentence .ci dt { font-weight: 600; }
+.sentence .ci dt .py { font-weight: 400; color: var(--ink-faint); font-size: 0.86em; margin-left: 3px; }
+.sentence .ci dd { margin: 0 0 6px; color: var(--ink-soft); font-size: 0.94rem; }
+.sentence .ci .extra { grid-column: 1 / -1; color: var(--ink-soft); font-size: 0.94rem; margin: 2px 0 6px; }
+
+.sentence .yi {
+  border-top: 1px solid var(--line);
+  background: var(--paper);
+  padding: 10px 20px;
+}
+
+.sentence .yi b { color: var(--accent); margin-right: 8px; font-size: 0.9rem; letter-spacing: 0.06em; }
+
+/* 要点列表 */
+ul.points { padding-left: 1.25em; }
+ul.points li { margin: 6px 0; }
+ul.points li::marker { color: var(--accent); }
+
+/* 现代汉语讲义 */
+.lecture .para { margin: 1.1em 0; }
+.lecture .para b { font-weight: 700; }
+.lecture blockquote {
+  margin: 18px 0;
+  padding: 10px 18px;
+  border-left: 3px solid var(--accent);
+  background: var(--accent-bg);
+  border-radius: 0 8px 8px 0;
+  color: var(--ink-soft);
+}
+.lecture-quote {
+  max-width: 1080px;
+  margin: 0 auto 30px;
+  padding: 14px 18px;
+  border-left: 3px solid var(--accent);
+  background: var(--accent-bg);
+  border-radius: 0 8px 8px 0;
+  color: var(--ink-soft);
+  font-size: 0.98rem;
+}
+.lecture .keyline {
+  background: var(--mark);
+  padding: 2px 4px;
+  border-radius: 4px;
+  font-weight: 600;
+}
+.lecture code {
+  font-family: "Cambria Math", "Times New Roman", serif;
+  background: var(--paper-deep);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+.formula {
+  font-family: "Cambria Math", "Times New Roman", "STIXGeneral", serif;
+  background: var(--paper-deep);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.95em;
+}
+
+/* 页脚 */
+footer {
+  border-top: 1px solid var(--line);
+  background: var(--paper-deep);
+  padding: 26px 20px 40px;
+  text-align: center;
+  color: var(--ink-faint);
+  font-size: 0.85rem;
+}
+
+footer .footer-links { margin-bottom: 8px; }
+footer .footer-links a { color: var(--ink-soft); text-decoration: none; margin: 0 10px; }
+footer .footer-links a:hover { color: var(--accent); }
+
+/* ---------- 首页 ---------- */
+.hero {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 64px 20px 40px;
+  text-align: center;
+}
+
+.hero .hero-kicker {
+  font-size: 0.9rem;
+  letter-spacing: 0.34em;
+  color: var(--ink-faint);
+  margin-bottom: 18px;
+}
+
+.hero h1 {
+  font-size: 2.7rem;
+  margin: 0 0 16px;
+  letter-spacing: 0.12em;
+}
+
+.hero .hero-sub {
+  font-size: 1.06rem;
+  color: var(--ink-soft);
+  max-width: 620px;
+  margin: 0 auto;
+  line-height: 2;
+}
+
+.modules {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 20px 20px 70px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.mod-card {
+  display: block;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--paper-card);
+  padding: 30px 30px 26px;
+  text-decoration: none;
+  color: var(--ink);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.mod-card:hover { transform: translateY(-3px); box-shadow: 0 10px 24px rgba(42,37,31,0.10); }
+
+.mod-card.gd { --accent: #a63d2f; }
+.mod-card.xd { --accent: #2e5e5a; }
+
+.mod-card .mod-name {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0 0 4px;
+  letter-spacing: 0.1em;
+}
+
+.mod-card .mod-sub {
+  color: var(--ink-faint);
+  font-size: 0.9rem;
+  letter-spacing: 0.16em;
+  margin-bottom: 14px;
+}
+
+.mod-card .mod-desc {
+  color: var(--ink-soft);
+  font-size: 0.98rem;
+  line-height: 1.95;
+  margin-bottom: 16px;
+}
+
+.mod-card .mod-list { margin: 0; padding: 0; list-style: none; }
+
+.mod-card .mod-list li {
+  display: flex;
+  gap: 8px;
+  align-items: baseline;
+  padding: 5px 0;
+  border-top: 1px dashed var(--line);
+  font-size: 0.95rem;
+}
+
+.mod-card .mod-list li .t {
+  color: var(--accent);
+  font-weight: 700;
+  min-width: 2.2em;
+}
+
+.mod-card .go {
+  margin-top: 18px;
+  display: inline-block;
+  color: var(--accent);
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+/* ---------- 窄屏 ---------- */
+@media (max-width: 720px) {
+  body { font-size: 16px; }
+  .masthead-inner { flex-wrap: wrap; padding: 8px 14px; }
+  .hero { padding-top: 42px; }
+  .hero h1 { font-size: 2.1rem; }
+  .modules { grid-template-columns: 1fr; padding-bottom: 50px; }
+  .passage .zhushi dl, .sentence .ci dl { grid-template-columns: 1fr; }
+  main { padding: 20px 14px 60px; }
+  .lesson-nav { padding: 6px 14px 0; }
+  .passage .yuanwen, .sentence .wen { font-size: 1.06rem; }
+}
